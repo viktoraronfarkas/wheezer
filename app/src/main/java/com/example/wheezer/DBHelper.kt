@@ -9,6 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper
 class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(context, DATABASE_NAME, factory, DATABASE_VERSION) {
 
+     fun addDefaultExercises () {
+         
+     }
+
     // below is the method for creating a database by a sqlite query
     override fun onCreate(db: SQLiteDatabase) {
         // below is a sqlite query, where column names
