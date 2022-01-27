@@ -20,64 +20,7 @@
         app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.309" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/anxious_btn"
-        android:layout_width="230dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#FFFFFF"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Anxious"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:cornerRadius="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/other_btn"
-        android:layout_width="230dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#FFFFFF"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Other"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:cornerRadius="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.662" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/panicked_btn"
-        android:layout_width="230dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#FFFFFF"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Panicked"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:cornerRadius="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.586" />
+        app:layout_constraintVertical_bias="0.346" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/stresses_btn"
@@ -93,10 +36,67 @@
         app:cornerRadius="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.434" />
+        app:layout_constraintVertical_bias="0.471" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonTint"
+        android:layout_width="230dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Anxious"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.545" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/panicked_btn"
+        android:layout_width="230dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Panicked"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.623" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/other_btn"
+        android:layout_width="230dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Other"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.699" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -104,11 +104,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.424"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.846"
-        app:srcCompat="@drawable/frame_3" />
+        app:layout_constraintVertical_bias="0.835"
+        app:srcCompat="@drawable/frame_4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

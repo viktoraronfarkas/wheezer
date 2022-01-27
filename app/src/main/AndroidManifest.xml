@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wheezer">
         <activity
+            android:name=".ExpressFeelingActivity"
+            android:exported="false" />
+        <activity
             android:name=".FeelingQuestionsActivity"
             android:exported="false" />
         <activity
-            android:name=".ThirdActiviy"
+            android:name=".ThirdActivity"
             android:exported="false" />
         <activity
             android:name=".Explore"
