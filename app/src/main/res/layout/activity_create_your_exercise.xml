@@ -32,11 +32,13 @@
         android:hint="Enter text"
         app:endIconMode="clear_text"
         app:endIconTint="@color/white"
-        app:cornerRadius="16dp">
+        app:shapeAppearance="@style/Rounded">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="230dp"
-            android:layout_height="35dp"
+            android:id="@+id/exercise_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:shapeAppearance="@style/Rounded"
 
             />
 
