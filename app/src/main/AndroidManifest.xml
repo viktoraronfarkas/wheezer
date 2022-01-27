@@ -10,7 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wheezer">
         <activity
-            android:name=".ForYouActivity"
+            android:name=".FeelingQuestionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThirdActiviy"
+            android:exported="false" />
+        <activity
+            android:name=".Explore"
+            android:exported="false" />
+        <activity
+            android:name=".Saved"
+            android:exported="false" />
+        <activity
+            android:name=".ForYouPage"
             android:exported="false" />
         <activity
             android:name=".SecondActivity"
