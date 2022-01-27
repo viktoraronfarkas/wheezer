@@ -23,9 +23,9 @@
         app:layout_constraintVertical_bias="0.309" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonTint"
+        android:id="@+id/anxious_btn"
         android:layout_width="230dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/poppins_regular"
@@ -44,7 +44,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/other_btn"
         android:layout_width="230dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/poppins_regular"
@@ -63,7 +63,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/panicked_btn"
         android:layout_width="230dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/poppins_regular"
@@ -82,7 +82,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/stresses_btn"
         android:layout_width="230dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/poppins_regular"
