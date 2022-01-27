@@ -48,14 +48,15 @@
 
             <TextView
                 android:id="@+id/forYou"
-                android:layout_width="wrap_content"
-                android:textSize="40sp"
-                android:textColor="@color/white"
-                android:text="For You"
-                android:fontFamily="@font/montserrat_regular"
-                android:layout_marginTop="155dp"
+                android:layout_width="244dp"
+                android:layout_height="85dp"
                 android:layout_marginLeft="11dp"
-                android:layout_height="wrap_content"/>
+                android:layout_marginTop="125dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="For You"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="45sp" />
 
 
         </RelativeLayout>
@@ -65,6 +66,7 @@
             android:layout_height="wrap_content"
             android:rowCount="3"
             android:columnCount="2"
+            android:layout_marginTop="20dp"
             android:columnOrderPreserved="false"
             android:alignmentMode="alignMargins"
             >

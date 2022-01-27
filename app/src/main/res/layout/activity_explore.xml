@@ -49,14 +49,15 @@
 
             <TextView
                 android:id="@+id/ic_explore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="244dp"
+                android:layout_height="72dp"
                 android:layout_marginLeft="11dp"
-                android:layout_marginTop="155dp"
+                android:layout_marginTop="125dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:text="Explore"
+                android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="40sp" />
+                android:textSize="45sp" />
 
 
         </RelativeLayout>
@@ -69,7 +70,7 @@
             android:textColor="@color/white"
             android:text="Meditate"
             android:fontFamily="@font/montserrat_regular"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:layout_marginLeft="40dp"/>
 
 
