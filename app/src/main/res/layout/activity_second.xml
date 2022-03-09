@@ -7,31 +7,7 @@
     android:background="@drawable/background"
     tools:context=".SecondActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/toolbar"
-            android:background="@color/bg_blue"
-            android:minHeight="?attr/actionBarSize"
-            >
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="68dp"
-                android:layout_height="68dp"
-                android:src="@drawable/logo2"
-                android:layout_gravity="center"
-                android:padding="8dp"
-                android:id="@+id/circle_imageView"/>
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
         android:id="@+id/textView2"
@@ -46,5 +22,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.835"
+        app:srcCompat="@drawable/frame6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
