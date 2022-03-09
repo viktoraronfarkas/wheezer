@@ -13,11 +13,12 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     override fun onCreate(db: SQLiteDatabase) {
         // below is a sqlite query, where column names
         // along with their data types is given
-        val query = ("CREATE TABLE " + TABLE_NAME + " ("
+        val query = ("CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY, " +
                 NAME + " TEXT," +
                 CAT + " TEXT," +
-                EXERCISE_DATA + " TEXT" + ")")
+                EXERCISE_DATA + " TEXT," +
+                IS_SAVED + " INTEGER" + ")")
 
         // we are calling sqlite
         // method for executing our query
@@ -42,6 +43,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         values.put(NAME, name)
         values.put(CAT, category)
         values.put(EXERCISE_DATA, exercise_data)
+        values.put(IS_SAVED, 0)
 
         // here we are creating a
         // writable variable of
@@ -54,7 +56,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
         // at last we are
         // closing our database
-        db.close()
+        //db.close()
     }
 
     // below method is to get
@@ -110,5 +112,8 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
         // below is the variable for exercise data column
         const val EXERCISE_DATA = "exercise_data"
+
+        // below is the variable for is_saved data column
+        const val IS_SAVED = "is_saved"
     }
 }

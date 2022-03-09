@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.346" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/stresses_btn"
+        android:id="@+id/stressed_btn"
         android:layout_width="230dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -42,7 +42,7 @@
         app:layout_constraintVertical_bias="0.471" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonTint"
+        android:id="@+id/anxious_btn"
         android:layout_width="230dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
