@@ -10,41 +10,34 @@
     tools:context=".CreateYourExercise">
 
 
-
-
     <TextView
-        android:layout_width="244dp"
+        android:layout_width="344dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="155dp"
         android:layout_marginStart="11dp"
+        android:layout_marginTop="155dp"
+        android:fontFamily="@font/montserrat_regular"
         android:text="Create your exercise"
-        android:textSize="40sp"
         android:textColor="@color/white"
-        android:fontFamily="@font/montserrat_regular"/>
+        android:textSize="40sp" />
 
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="230dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="370dp"
-        android:layout_marginStart="-243dp"
-        android:background="@color/white"
-        android:hint="Enter text"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/white"
-        app:shapeAppearance="@style/Rounded">
+
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/exercise_title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            astyle="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="370dp"
+            android:background="@color/white"
+            android:hint="Enter text"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/white"
             app:shapeAppearance="@style/Rounded"
 
             />
 
-    </com.google.android.material.textfield.TextInputLayout>
+
 
 
 
