@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 
 class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
@@ -15,7 +16,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         // along with their data types is given
         val query = ("CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY, " +
-                NAME + " TEXT," +
+                NAME + " TEXT UNIQUE," +
                 CAT + " TEXT," +
                 EXERCISE_DATA + " TEXT," +
                 IS_SAVED + " INTEGER" + ")")
@@ -32,7 +33,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     }
 
     // This method is for adding data in our database
-    fun addExercise(name : String, category : String, exercise_data: String ){
+    fun addExercise(name : String, category : String, exercise_data: String ): Boolean {
 
         // below we are creating
         // a content values variable
@@ -43,7 +44,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         values.put(NAME, name)
         values.put(CAT, category)
         values.put(EXERCISE_DATA, exercise_data)
-        values.put(IS_SAVED, 0)
+        values.put(IS_SAVED, 1)
 
         // here we are creating a
         // writable variable of
@@ -52,11 +53,14 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         val db = this.writableDatabase
 
         // all values are inserted into database
-        db.insert(TABLE_NAME, null, values)
-
-        // at last we are
-        // closing our database
-        //db.close()
+        try {
+            db.insertOrThrow(TABLE_NAME, null, values)
+        } catch (e: SQLiteException) {
+            return false
+        } finally {
+            return true
+            db.close()
+        }
     }
 
     // below method is to get
@@ -87,6 +91,37 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         // read data from the database
         return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE ID=$id", null)
 
+    }
+
+    fun getForYouExercises(category: String): Cursor? {
+        // here we are creating a readable
+        // variable of our database
+        // as we want to read value from it
+        val db = this.readableDatabase
+
+        // below code returns a cursor to
+        // read data from the database
+        return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE category='$category' LIMIT 3", null)
+    }
+
+    fun getCategoryCount (category: String): Int {
+        val db = this.readableDatabase
+        val countQuery = "SELECT  * FROM $TABLE_NAME WHERE category='$category'"
+        val cursor = db.rawQuery(countQuery, null)
+        val count = cursor.count
+        cursor.close()
+        return count
+    }
+
+    fun getSavedExercises(): Cursor? {
+        // here we are creating a readable
+        // variable of our database
+        // as we want to read value from it
+        val db = this.readableDatabase
+
+        // below code returns a cursor to
+        // read data from the database
+        return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE is_saved=1", null)
     }
 
     companion object{

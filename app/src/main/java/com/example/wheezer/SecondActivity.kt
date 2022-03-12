@@ -15,17 +15,47 @@ class SecondActivity : AppCompatActivity() {
         val db = DBHelper(this, null)
         db.addExercise(
             "5-5-5",
-            "Calm",
+            "Stressed",
             "inhale:5,hold:5,exhale:5,inhale:5,hold:5,exhale:5,inhale:5,hold:5,exhale:5,inhale:5,hold:5,exhale:5,inhale:5,hold:5,exhale:5"
         )
         db.addExercise(
             "4-7-8",
-            "Sleep",
+            "Stressed",
             "inhale:4,hold:7,exhale:8,inhale:4,hold:7,exhale:8,inhale:4,hold:7,exhale:8"
         )
         db.addExercise(
             "Quick calm",
-            "Calm",
+            "Stressed",
+            "inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,hold:5,exhale:5"
+        )
+        db.addExercise(
+            "Anti-Panic",
+            "Panicked",
+            "inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,hold:5,exhale:5"
+        )
+        db.addExercise(
+            "Chill",
+            "Panicked",
+            "inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,hold:5,exhale:5"
+        )
+        db.addExercise(
+            "Quick relief",
+            "Panicked",
+            "inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,hold:5,exhale:5"
+        )
+        db.addExercise(
+            "Anti-Anxiety",
+            "Anxious",
+            "inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,hold:5,exhale:5"
+        )
+        db.addExercise(
+            "Relax, my friend",
+            "Anxious",
+            "inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,hold:5,exhale:5"
+        )
+        db.addExercise(
+            "Crush Anxiety",
+            "Anxious",
             "inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,exhale:5,inhale:5,hold:5,exhale:5"
         )
         Toast.makeText(this, "New entries added to database", Toast.LENGTH_LONG).show()
