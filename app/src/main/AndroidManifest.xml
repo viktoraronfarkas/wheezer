@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wheezer">
         <activity
+            android:name=".CreateYourOwnEx"
+            android:exported="false" />
+        <activity
+            android:name=".StartExercise"
+            android:exported="false" />
+        <activity
             android:name=".ExerciseActivity"
             android:exported="false" />
         <activity
