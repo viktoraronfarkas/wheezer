@@ -116,7 +116,7 @@ class Explore : AppCompatActivity() {
         context.addView(cardView)
 
         cardView.setOnClickListener {
-            val intent = Intent(this@Explore, Explore::class.java)
+            val intent = Intent(this@Explore, StartExercise::class.java)
             intent.putExtra("id", id)
             startActivity(intent)
         }

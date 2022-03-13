@@ -75,7 +75,7 @@ class ForYouPage : AppCompatActivity() {
         gridLayout.addView(cardView)
 
         cardView.setOnClickListener {
-            val intent = Intent(this@ForYouPage, ForYouPage::class.java)
+            val intent = Intent(this@ForYouPage, StartExercise::class.java)
             intent.putExtra("id", id)
             startActivity(intent)
         }

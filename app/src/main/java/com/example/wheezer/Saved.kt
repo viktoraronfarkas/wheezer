@@ -72,7 +72,7 @@ class Saved : AppCompatActivity() {
         gridLayout.addView(cardView)
 
         cardView.setOnClickListener {
-            val intent = Intent(this@Saved, Saved::class.java)
+            val intent = Intent(this@Saved, StartExercise::class.java)
             intent.putExtra("id", id)
             startActivity(intent)
         }
