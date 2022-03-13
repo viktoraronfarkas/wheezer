@@ -25,6 +25,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exercise_title"
             astyle="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="300dp"
             android:layout_height="48dp"

@@ -113,6 +113,28 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         return count
     }
 
+    fun getCategories (): Cursor? {
+        // here we are creating a readable
+        // variable of our database
+        // as we want to read value from it
+        val db = this.readableDatabase
+
+        // below code returns a cursor to
+        // read data from the database
+        return db.rawQuery("SELECT DISTINCT category FROM $TABLE_NAME", null)
+    }
+
+    fun getExercisesByCategory (category: String): Cursor? {
+        // here we are creating a readable
+        // variable of our database
+        // as we want to read value from it
+        val db = this.readableDatabase
+
+        // below code returns a cursor to
+        // read data from the database
+        return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE category='$category'", null)
+    }
+
     fun getSavedExercises(): Cursor? {
         // here we are creating a readable
         // variable of our database
