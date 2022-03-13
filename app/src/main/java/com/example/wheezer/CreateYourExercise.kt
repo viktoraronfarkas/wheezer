@@ -12,12 +12,8 @@ class CreateYourExercise : AppCompatActivity() {
     }
     fun getSet(view: View)
     {
-        val editTxt = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.exercise_title)
-        val msg= editTxt.text.toString();
-
         /*val customExercise= findViewById<TextView>(R.id.yourExercise).apply {
             text = msg
         }*/
-
     }
 }

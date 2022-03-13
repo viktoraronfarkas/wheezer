@@ -7,6 +7,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.TypedValue
+import android.view.ViewGroup
 import android.widget.GridLayout
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -23,21 +24,67 @@ class Explore : AppCompatActivity() {
         cursorCategory!!.moveToFirst()
         val count = cursorCategory.count
         if (count > 0) {
-
+            val currentCategory = cursorCategory.getString(cursorCategory.getColumnIndex(DBHelper.CAT))
+            addCategorySection(currentCategory)
 
             while(cursorCategory.moveToNext()) {
-                val id = cursorCategory.getString(cursorCategory.getColumnIndex(DBHelper.ID_COL))
-                val name = cursorCategory.getString(cursorCategory.getColumnIndex(DBHelper.NAME))
-                addCard(id.toInt(), name)
+                val currentCategory = cursorCategory.getString(cursorCategory.getColumnIndex(DBHelper.CAT))
+                addCategorySection(currentCategory)
             }
         }
 
         cursorCategory.close()
     }
 
-    private fun addCard(id: Int, text: String) {
+    @SuppressLint("Range")
+    private fun addCategorySection(category: String) {
+        val linearLayout = findViewById<LinearLayout>(R.id.linearLayout)
+        val title = TextView(this)
+        title.text = category
+        title.textSize = dpToPx(9f, applicationContext).toFloat()
+        title.setTextColor(Color.WHITE)
+        val titleParams = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+        )
+        titleParams.topMargin = dpToPx(60f, applicationContext)
+        titleParams.leftMargin = dpToPx(40f, applicationContext)
+        title.layoutParams = titleParams
 
-        val gridLayout = findViewById<GridLayout>(R.id.gridLayout)
+        linearLayout.addView(title)
+
+        val gridLayout = GridLayout(this)
+        val gridParams = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT, // CardView width
+            ViewGroup.LayoutParams.WRAP_CONTENT // CardView height
+        )
+        gridLayout.layoutParams = gridParams
+        gridLayout.columnCount = 2
+        linearLayout.addView(gridLayout)
+
+        val db = DBHelper(this, null)
+        val cursor = db.getExercisesByCategory(category)
+        cursor!!.moveToFirst()
+        val count = cursor.count
+        if (count > 0) {
+            val id = cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL))
+            val name = cursor.getString(cursor.getColumnIndex(DBHelper.NAME))
+
+            addCard(id.toInt(), name, gridLayout)
+
+            while(cursor.moveToNext()) {
+                val id = cursor.getString(cursor.getColumnIndex(DBHelper.ID_COL))
+                val name = cursor.getString(cursor.getColumnIndex(DBHelper.NAME))
+                addCard(id.toInt(), name, gridLayout)
+            }
+        }
+
+        cursor.close()
+
+    }
+
+    private fun addCard(id: Int, text: String, context: GridLayout) {
+
         val cardLinearLayout = LinearLayout(this)
 
         val cardView = CardView(this)
@@ -66,7 +113,7 @@ class Explore : AppCompatActivity() {
         exerciseName.textSize = dpToPx(6f, applicationContext).toFloat()
         cardLinearLayout.addView(exerciseName)
         cardView.addView(cardLinearLayout)
-        gridLayout.addView(cardView)
+        context.addView(cardView)
 
         cardView.setOnClickListener {
             val intent = Intent(this@Explore, Explore::class.java)
