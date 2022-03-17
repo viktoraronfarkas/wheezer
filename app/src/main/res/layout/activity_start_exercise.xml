@@ -34,11 +34,11 @@
         </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/exerciseTitle"
         android:layout_width="256dp"
         android:layout_height="106dp"
         android:fontFamily="@font/montserrat_regular"
-        android:text="A heart less heavy"
+        android:text="Loading"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="40sp"

@@ -44,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Inhale"
+        android:id="@+id/exercise_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/mulish_bold"
@@ -59,7 +59,7 @@
         app:layout_constraintVertical_bias="0.407" />
 
     <TextView
-        android:id="@+id/motivation1"
+        android:id="@+id/motivation_text"
         android:layout_width="184dp"
         android:layout_height="wrap_content"
         android:text="You are doing great, keep going."

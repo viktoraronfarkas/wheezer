@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wheezer">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -23,7 +24,7 @@
             android:exported="false" />
         <activity
             android:name=".CreateYourExercise"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ExpressFeelingActivity"
             android:exported="false" />
@@ -35,13 +36,13 @@
             android:exported="false" />
         <activity
             android:name=".Explore"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Saved"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ForYouPage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SecondActivity"
             android:exported="true" />
