@@ -12,7 +12,7 @@ class ThirdActivity : AppCompatActivity() {
         setContentView(R.layout.activity_third)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@ThirdActivity, FeelingQuestionsActivity::class.java)
+            val intent = Intent(this@ThirdActivity, Explore::class.java)
             startActivity(intent)
             finish()
         }, 3000)

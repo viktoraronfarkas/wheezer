@@ -1,14 +1,13 @@
 package com.example.wheezer
 
 import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.animation.doOnEnd
 import kotlinx.android.synthetic.main.activity_exercise.*
 
 
@@ -30,39 +29,35 @@ class ExerciseActivity : AppCompatActivity() {
         cursor.close()
 
         val list = exerciseData.split(",")
-        val newList = ArrayList<ArrayList<String>>()
+        val exerciseList = ArrayList<ArrayList<String>>()
         for (item in list) {
-            newList.add(ArrayList(item.split(":")))
+            exerciseList.add(ArrayList(item.split(":")))
         }
 
-        var currentExerciseType: String = ""
-        var currentExerciseDuration: Long = 0
+        animate(0, exerciseList)
+    }
 
-        motivation_text.text = newList.size.toString()
-        currentExerciseType = newList[0][0]
-        currentExerciseDuration = newList[0][1].toLong() * 1000
-        exercise_type.text = currentExerciseType
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            currentExerciseType = newList[1][0]
-            currentExerciseDuration = newList[1][1].toLong() * 1000
+    private fun animate(i : Int, exercises: ArrayList<ArrayList<String>>) {
+        if (i < exercises.size) {
+            val currentExerciseType = exercises[i][0]
+            val currentExerciseDuration = exercises[i][1].toLong() * 1000
             exercise_type.text = currentExerciseType
-        }, currentExerciseDuration)
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            currentExerciseType = newList[2][0]
-            currentExerciseDuration = newList[2][1].toLong() * 1000
-            exercise_type.text = currentExerciseType
-        }, currentExerciseDuration)
+            val animation = ObjectAnimator.ofInt(progressBar, "progress", 0, 100)
+            animation.duration = currentExerciseDuration
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            currentExerciseType = newList[3][0]
-            currentExerciseDuration = newList[3][1].toLong() * 1000
-            exercise_type.text = currentExerciseType
-        }, currentExerciseDuration)
+            animation.interpolator = DecelerateInterpolator()
+            animation.start()
 
-        Toast.makeText(this@ExerciseActivity, "Exercise finished!", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this@ExerciseActivity, Explore::class.java)
-        startActivity(intent)
+            animation.doOnEnd {
+                if (i < exercises.size) {
+                    animate(i + 1, exercises)
+                }
+            }
+        } else if (i == exercises.size) {
+            Toast.makeText(this@ExerciseActivity, "Exercise finished.", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this@ExerciseActivity, Explore::class.java)
+            startActivity(intent)
+        }
     }
 }
