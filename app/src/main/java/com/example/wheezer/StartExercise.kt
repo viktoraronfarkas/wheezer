@@ -4,13 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.GridLayout
-import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
 import android.view.View
+import android.widget.*
 
 class StartExercise : AppCompatActivity() {
     @SuppressLint("Range")
@@ -84,9 +81,8 @@ class StartExercise : AppCompatActivity() {
 
         val buttonSave = findViewById<ImageButton>(R.id.saveButton)
         buttonSave.setOnClickListener {
-            val intent = Intent(this, NewActivity::class.java)
-            startActivity(intent)
 
 
+        }
     }
 }
