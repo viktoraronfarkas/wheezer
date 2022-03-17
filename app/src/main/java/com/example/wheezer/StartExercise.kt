@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
+import android.view.View
 
 class StartExercise : AppCompatActivity() {
     @SuppressLint("Range")
@@ -80,5 +81,12 @@ class StartExercise : AppCompatActivity() {
         button.isEnabled = false
         button.setTextColor(ContextCompat.getColor(this,R.color.white))
         button.setBackgroundColor(ContextCompat.getColor(this,R.color.grey))
+
+        val buttonSave = findViewById<ImageButton>(R.id.saveButton)
+        buttonSave.setOnClickListener {
+            val intent = Intent(this, NewActivity::class.java)
+            startActivity(intent)
+
+
     }
 }
