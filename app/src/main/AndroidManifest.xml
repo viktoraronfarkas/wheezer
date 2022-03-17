@@ -10,10 +10,43 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wheezer">
         <activity
-            android:name=".SecondActivity"
+            android:name=".Main1Activity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".CreateYourOwnEx"
+            android:exported="false" />
+        <activity
+            android:name=".StartExercise"
+            android:exported="false" />
+        <activity
+            android:name=".ExerciseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateYourExercise"
+            android:exported="false" />
+        <activity
+            android:name=".ExpressFeelingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FeelingQuestionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThirdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Explore"
+            android:exported="false" />
+        <activity
+            android:name=".Saved"
+            android:exported="false" />
+        <activity
+            android:name=".ForYouPage"
+            android:exported="false" />
+        <activity
+            android:name=".SecondActivity"
+            android:exported="true" />
+        <activity
+            android:name=".WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

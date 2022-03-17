@@ -4,24 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".SecondActivity">
-
-
+    android:background="@color/bg_blue"
+    tools:context=".ExpressFeelingActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="272dp"
-        android:layout_height="71dp"
-        android:text="Concentrate more on your breath, stress less, live better."
-        android:textColor="@color/white"
+        android:id="@+id/textView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_semi_bold"
-        android:textSize="20sp"
+        android:text="Express what are you feeling now?"
         android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.346" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="230dp"
+        android:layout_height="150dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.581" />
+
 
     <ImageView
         android:id="@+id/imageView2"
@@ -32,6 +44,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.835"
-        app:srcCompat="@drawable/frame6" />
+        app:srcCompat="@drawable/frame_4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
