@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="motivational_strings">
+        <item>Good job!</item>
+        <item>Keep going!</item>
+        <item>You\'re almost there!</item>
+        <item>Try breathing into your diaphragm.</item>
+        <item>Focus on your breathing.</item>
+        <item>Let go of your thoughts.</item>
+        <item>Keep on breathing.</item>
+    </string-array>
+</resources>

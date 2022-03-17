@@ -34,14 +34,18 @@ class ExerciseActivity : AppCompatActivity() {
             exerciseList.add(ArrayList(item.split(":")))
         }
 
-        animate(0, exerciseList)
+        val motivationStrings: Array<String> = resources.getStringArray(R.array.motivational_strings)
+        motivationStrings.shuffle()
+
+        animate(0, exerciseList, motivationStrings)
     }
 
-    private fun animate(i : Int, exercises: ArrayList<ArrayList<String>>) {
+    private fun animate(i : Int, exercises: ArrayList<ArrayList<String>>, motivationStrings: Array<String>) {
         if (i < exercises.size) {
             val currentExerciseType = exercises[i][0]
             val currentExerciseDuration = exercises[i][1].toLong() * 1000
             exercise_type.text = currentExerciseType
+            motivation_text.text = motivationStrings[i % motivationStrings.size]
 
             val animation = ObjectAnimator.ofInt(progressBar, "progress", 0, 100)
             animation.duration = currentExerciseDuration
@@ -51,11 +55,11 @@ class ExerciseActivity : AppCompatActivity() {
 
             animation.doOnEnd {
                 if (i < exercises.size) {
-                    animate(i + 1, exercises)
+                    animate(i + 1, exercises, motivationStrings)
                 }
             }
         } else if (i == exercises.size) {
-            Toast.makeText(this@ExerciseActivity, "Exercise finished.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@ExerciseActivity, "Exercise finished. Good job!", Toast.LENGTH_SHORT).show()
             val intent = Intent(this@ExerciseActivity, Explore::class.java)
             startActivity(intent)
         }
