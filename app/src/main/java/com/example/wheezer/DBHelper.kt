@@ -155,6 +155,20 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE category='$category'", null)
     }
 
+    fun saveExercise(id: String, value: Int): Boolean {
+        val db = this.readableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(IS_SAVED, value)
+        try {
+            db.update(TABLE_NAME, contentValues, "id = ?", arrayOf(id))
+        } catch (e: SQLiteException) {
+            return false
+        } finally {
+            return true
+            db.close()
+        }
+    }
+
     fun getSavedExercises(): Cursor? {
         // here we are creating a readable
         // variable of our database
