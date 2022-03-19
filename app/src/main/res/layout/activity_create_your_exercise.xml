@@ -86,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_semi_bold"
-        android:text="Duration"
+        android:text="Category"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -98,11 +98,11 @@
 
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editDuration"
+        android:id="@+id/editCategory"
         android:layout_width="230dp"
         android:layout_height="35dp"
         android:background="@color/white"
-        android:hint=" seconds"
+        android:hint="Enter category.."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
@@ -115,7 +115,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_semi_bold"
-        android:text="Category"
+        android:text="Exercise string"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -126,11 +126,11 @@
         app:layout_constraintVertical_bias="0.683" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editCategory"
+        android:id="@+id/editExercise"
         android:layout_width="230dp"
         android:layout_height="35dp"
         android:background="@color/white"
-        android:hint=" text"
+        android:hint="inhale:5,hold:10,etc.."
         app:cornerRadius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,7 +140,7 @@
         app:layout_constraintVertical_bias="0.75" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
+        android:id="@+id/addExerciseButton"
         android:layout_width="180dp"
         android:layout_height="44dp"
         android:textColor="@color/black"

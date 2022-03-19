@@ -19,6 +19,11 @@ class StartExercise : AppCompatActivity() {
         val buttonDelete = findViewById<MaterialButton>(R.id.button_delete)
         val buttonEdit = findViewById<MaterialButton>(R.id.button_edit)
         val buttonStart = findViewById<MaterialButton>(R.id.button_start)
+        val textEditTitle = findViewById<EditText>(R.id.editTitle)
+        val buttonSaveEdit = findViewById<MaterialButton>(R.id.button_save_edit)
+        val buttonSave = findViewById<ImageButton>(R.id.saveButton)
+        val buttonSaveFilled = findViewById<ImageButton>(R.id.saveButtonFilled)
+
 
         val db = DBHelper(this, null)
         val currentId = intent.getIntExtra("id", 0)
@@ -30,9 +35,17 @@ class StartExercise : AppCompatActivity() {
             val name = cursor.getString(cursor.getColumnIndex(DBHelper.NAME))
             exerciseTitle.text = name
 
-            if(cursor.getInt(cursor.getColumnIndex(DBHelper.IS_DEFAULT)) == 1) {
+            if (cursor.getInt(cursor.getColumnIndex(DBHelper.IS_DEFAULT)) == 1) {
                 disableButton(buttonDelete)
                 disableButton(buttonEdit)
+            }
+
+            if (cursor.getInt(cursor.getColumnIndex(DBHelper.IS_SAVED)) == 0) {
+                buttonSave.visibility = View.VISIBLE
+                buttonSaveFilled.visibility = View.GONE
+            } else if (cursor.getInt(cursor.getColumnIndex(DBHelper.IS_SAVED)) == 1) {
+                buttonSave.visibility = View.GONE
+                buttonSaveFilled.visibility = View.VISIBLE
             }
         }
 
@@ -42,14 +55,36 @@ class StartExercise : AppCompatActivity() {
             clickDelete(currentId.toString())
         }
 
-        val newName = "Test"
         buttonEdit.setOnClickListener {
-            clickEdit(currentId.toString(), newName)
+            textEditTitle.visibility = View.VISIBLE
+            buttonSaveEdit.visibility = View.VISIBLE
+        }
+
+        buttonSaveEdit.setOnClickListener {
+            val newTitle = textEditTitle.text.toString()
+            clickEdit(currentId.toString(), newTitle)
         }
 
         buttonStart.setOnClickListener {
             clickStart(currentId)
         }
+
+        buttonSave.setOnClickListener {
+            saveExercise(currentId, 1)
+        }
+
+        buttonSaveFilled.setOnClickListener {
+            saveExercise(currentId, 0)
+        }
+    }
+
+    private fun saveExercise(id: Int, value: Int) {
+        val db = DBHelper(this, null)
+        db.saveExercise(id.toString(), value)
+
+        val intent = Intent(this@StartExercise, StartExercise::class.java)
+        intent.putExtra("id", id)
+        startActivity(intent)
     }
 
     private fun clickStart(id: Int) {
@@ -82,7 +117,7 @@ class StartExercise : AppCompatActivity() {
         val buttonSave = findViewById<ImageButton>(R.id.saveButton)
         buttonSave.setOnClickListener {
 
-
+            //textView.setVisibility(View.GONE)
         }
     }
 }
