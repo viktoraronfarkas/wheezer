@@ -54,7 +54,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         // insert value in our database
         val db = this.writableDatabase
 
-        // all values are inserted into database
+        // catch errors
         try {
             db.insertOrThrow(TABLE_NAME, null, values)
         } catch (e: SQLiteException) {
@@ -65,23 +65,9 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         }
     }
 
-    // below method is to get
-    // all data from our database
-    fun getExercises(): Cursor? {
-
-        // here we are creating a readable
-        // variable of our database
-        // as we want to read value from it
-        val db = this.readableDatabase
-
-        // below code returns a cursor to
-        // read data from the database
-        return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
-
-    }
-
     fun updateExercise(id: String, name: String):
         Boolean {
+            //this method updates an existing exercise
             val db = this.writableDatabase
             val contentValues = ContentValues()
             contentValues.put(ID_COL, id)
@@ -90,72 +76,38 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
             return true
         }
 
-    /**
-     * Let's create a function to delete a given row based on the id.
-     */
     fun deleteExercise(id : String) : Int {
+        //this method deletes an existing exercise
         val db = this.writableDatabase
         return db.delete(TABLE_NAME,"id = ?", arrayOf(id))
     }
 
-    // below method is to get
-    // all data from our database
     fun getExerciseById (id : Int): Cursor? {
-
-        // here we are creating a readable
-        // variable of our database
-        // as we want to read value from it
+        // this method returns the cursor for a single exercise of given ID
         val db = this.readableDatabase
-
-        // below code returns a cursor to
-        // read data from the database
         return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE id=$id", null)
-
     }
 
     fun getForYouExercises(category: String): Cursor? {
-        // here we are creating a readable
-        // variable of our database
-        // as we want to read value from it
+        // This method gets exercises for the For You page by category with a limit of 3
         val db = this.readableDatabase
-
-        // below code returns a cursor to
-        // read data from the database
         return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE category='$category' LIMIT 3", null)
     }
 
-    fun getCategoryCount (category: String): Int {
-        val db = this.readableDatabase
-        val countQuery = "SELECT  * FROM $TABLE_NAME WHERE category='$category'"
-        val cursor = db.rawQuery(countQuery, null)
-        val count = cursor.count
-        cursor.close()
-        return count
-    }
-
     fun getCategories (): Cursor? {
-        // here we are creating a readable
-        // variable of our database
-        // as we want to read value from it
+        // This method returns the list of categories
         val db = this.readableDatabase
-
-        // below code returns a cursor to
-        // read data from the database
         return db.rawQuery("SELECT DISTINCT category FROM $TABLE_NAME", null)
     }
 
     fun getExercisesByCategory (category: String): Cursor? {
-        // here we are creating a readable
-        // variable of our database
-        // as we want to read value from it
+        // This method returns exercises by a single category
         val db = this.readableDatabase
-
-        // below code returns a cursor to
-        // read data from the database
         return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE category='$category'", null)
     }
 
     fun saveExercise(id: String, value: Int): Boolean {
+        // This method flips the IS_SAVED flag for an exercise. 0 is not saved, 1 is saved.
         val db = this.readableDatabase
         val contentValues = ContentValues()
         contentValues.put(IS_SAVED, value)
@@ -170,13 +122,8 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     }
 
     fun getSavedExercises(): Cursor? {
-        // here we are creating a readable
-        // variable of our database
-        // as we want to read value from it
+        // This method returns all saved exercises.
         val db = this.readableDatabase
-
-        // below code returns a cursor to
-        // read data from the database
         return db.rawQuery("SELECT * FROM $TABLE_NAME WHERE is_saved=1", null)
     }
 

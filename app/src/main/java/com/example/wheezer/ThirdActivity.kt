@@ -11,8 +11,9 @@ class ThirdActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
 
+        // display third activity, navigate to FeelingQuestionsActivity after 3 seconds
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@ThirdActivity, CreateYourExercise::class.java)
+            val intent = Intent(this@ThirdActivity, FeelingQuestionsActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)

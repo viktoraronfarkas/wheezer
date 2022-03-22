@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import android.widget.GridLayout
 import androidx.cardview.widget.CardView
 import android.widget.LinearLayout.LayoutParams
+import kotlinx.android.synthetic.main.activity_explore.*
 
 class ForYouPage : AppCompatActivity() {
     @SuppressLint("Range")
@@ -22,6 +23,7 @@ class ForYouPage : AppCompatActivity() {
 
         Toast.makeText(this@ForYouPage, intent.getStringExtra("Category"), Toast.LENGTH_SHORT).show()
 
+        //get 3 exercises from DB by category, and add the cards
         val db = DBHelper(this, null)
         val cursor = intent.getStringExtra("Category")?.let { db.getForYouExercises(it) }
         cursor!!.moveToFirst()
@@ -38,11 +40,42 @@ class ForYouPage : AppCompatActivity() {
 
         cursor.close()
 
+        // NAVBAR
+        navigation.inflateMenu(R.menu.nav_menu)
+
+        navigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.menuExplore -> {
+                    startActivity(
+                        Intent(
+                            this,
+                            Explore::class.java
+                        )
+                    )
+                }
+                R.id.menuSaved -> {
+                    startActivity(
+                        Intent(
+                            this,
+                            Saved::class.java
+                        )
+                    )
+                }
+                R.id.menuNewExercise -> {
+                    startActivity(Intent(
+                        this,
+                        CreateYourExercise::class.java
+                    ))
+                }
+            }
+            true
+        }
+
         addNewExerciseCard()
     }
 
     private fun addCard(id: Int, text: String) {
-
+        //add exercise card, and its layout parameters
         val gridLayout = findViewById<GridLayout>(R.id.gridLayout)
         val cardLinearLayout = LinearLayout(this)
 
@@ -82,7 +115,7 @@ class ForYouPage : AppCompatActivity() {
     }
 
     private fun addNewExerciseCard() {
-
+        // add "add new exercise" card, and its layout parameters
         val gridLayout = findViewById<GridLayout>(R.id.gridLayout)
         val cardLinearLayout = LinearLayout(this)
 
@@ -121,6 +154,7 @@ class ForYouPage : AppCompatActivity() {
     }
 
     fun dpToPx(dp: Float, context: Context): Int {
+        // convert DP to pixels
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics()).toInt()
     }
 }
