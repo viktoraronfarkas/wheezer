@@ -15,6 +15,7 @@ class FeelingQuestionsActivity : AppCompatActivity() {
         val anxious_btn = findViewById<Button>(R.id.anxious_btn)
         val panicked_btn = findViewById<Button>(R.id.panicked_btn)
 
+        // navigate to for you page with category "stressed"
         stressed_btn.setOnClickListener {
             Toast.makeText(this@FeelingQuestionsActivity, "You clicked stressed.", Toast.LENGTH_SHORT).show()
             val intent = Intent(this@FeelingQuestionsActivity, ForYouPage::class.java)
@@ -22,6 +23,7 @@ class FeelingQuestionsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // navigate to for you page with category "anxious"
         anxious_btn.setOnClickListener {
             Toast.makeText(this@FeelingQuestionsActivity, "You clicked anxious.", Toast.LENGTH_SHORT).show()
             val intent = Intent(this@FeelingQuestionsActivity, ForYouPage::class.java)
@@ -29,6 +31,7 @@ class FeelingQuestionsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // navigate to for you page with category "panicked"
         panicked_btn.setOnClickListener {
             Toast.makeText(this@FeelingQuestionsActivity, "You clicked panicked.", Toast.LENGTH_SHORT).show()
             val intent = Intent(this@FeelingQuestionsActivity, ForYouPage::class.java)

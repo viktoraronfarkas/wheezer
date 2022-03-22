@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import kotlinx.android.synthetic.main.activity_explore.*
 
 class Saved : AppCompatActivity() {
     @SuppressLint("Range")
@@ -18,6 +19,7 @@ class Saved : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_saved)
 
+        // get saved exercises from DB, and display them on cards
         val db = DBHelper(this, null)
         val cursor = db.getSavedExercises()
         cursor!!.moveToFirst()
@@ -36,10 +38,37 @@ class Saved : AppCompatActivity() {
         }
 
         cursor.close()
+
+        // NAVBAR
+        navigation.inflateMenu(R.menu.nav_menu)
+        navigation.selectedItemId = R.id.menuSaved
+
+        navigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.menuExplore -> {
+                    startActivity(
+                        Intent(
+                            this,
+                            Explore::class.java
+                        )
+                    )
+                }
+                R.id.menuSaved -> {
+
+                }
+                R.id.menuNewExercise -> {
+                    startActivity(Intent(
+                        this,
+                        CreateYourExercise::class.java
+                    ))
+                }
+            }
+            true
+        }
     }
 
     private fun addCard(id: Int, text: String) {
-
+        // add exercise card with its layout parameters
         val gridLayout = findViewById<GridLayout>(R.id.gridLayout)
         val cardLinearLayout = LinearLayout(this)
 
@@ -79,6 +108,7 @@ class Saved : AppCompatActivity() {
     }
 
     fun dpToPx(dp: Float, context: Context): Int {
+        // convert DPs to pixels
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics()).toInt()
     }
 }

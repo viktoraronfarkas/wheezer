@@ -4,22 +4,23 @@
 
     <item
         android:id="@+id/ic_home"
-        android:icon="@drawable/home"
-        android:title="Home"/>
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        android:visible="false"/>
 
     <item
-        android:id="@+id/ic_search"
-        android:icon="@drawable/explore"
-        android:title="Search"/>
+        android:id="@+id/menuExplore"
+        android:icon="@drawable/ic_explore"
+        android:title="Explore"/>
 
     <item
-        android:id="@+id/ic_saved"
-        android:icon="@drawable/saved"
+        android:id="@+id/menuSaved"
+        android:icon="@drawable/ic_saved"
         android:title="Saved"/>
     <item
-        android:id="@+id/ic_my_progress"
-        android:icon="@drawable/my_progress"
-        android:title="My progress"/>
+        android:id="@+id/menuNewExercise"
+        android:icon="@drawable/ic_add_new_exercise"
+        android:title="New Exercise"/>
 
 
 

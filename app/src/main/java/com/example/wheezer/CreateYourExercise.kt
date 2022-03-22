@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_explore.*
 
 class CreateYourExercise : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,9 +18,8 @@ class CreateYourExercise : AppCompatActivity() {
         val add_btn = findViewById<Button>(R.id.addExerciseButton)
         val db = DBHelper(this, null)
 
-
-
         add_btn.setOnClickListener {
+            //insert new exercise into database
             val title = findViewById<EditText>(R.id.editTitle).text.toString()
             val cat = findViewById<EditText>(R.id.editCategory).text.toString()
             val exercise = findViewById<EditText>(R.id.editExercise).text.toString()
@@ -29,6 +29,37 @@ class CreateYourExercise : AppCompatActivity() {
 
             val intent = Intent(this@CreateYourExercise, Explore::class.java)
             startActivity(intent)
+        }
+
+        //NAVBAR
+        navigation.inflateMenu(R.menu.nav_menu)
+
+        navigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.menuExplore -> {
+                    startActivity(
+                        Intent(
+                            this,
+                            Explore::class.java
+                        )
+                    )
+                }
+                R.id.menuSaved -> {
+                    startActivity(
+                        Intent(
+                            this,
+                            Saved::class.java
+                        )
+                    )
+                }
+                R.id.menuNewExercise -> {
+                    startActivity(Intent(
+                        this,
+                        CreateYourExercise::class.java
+                    ))
+                }
+            }
+            true
         }
     }
 }

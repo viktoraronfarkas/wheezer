@@ -13,6 +13,7 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.welcome)
 
+        // Display WelcomeActivity, navigate to SecondActivity after 3 seconds
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this@WelcomeActivity, SecondActivity::class.java)
             startActivity(intent)
