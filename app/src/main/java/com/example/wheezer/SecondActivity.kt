@@ -24,13 +24,13 @@ class SecondActivity : AppCompatActivity() {
         db.addExercise(
             "4-7-8",
             "Stressed",
-            "inhale:4,hold:7,exhale:8,inhale:4,hold:7,exhale;8,inhale:4,hold:7,exhale;8",
+            "inhale:4,hold:7,exhale:8,inhale:4,hold:7,exhale:8,inhale:4,hold:7,exhale:8",
             1
         )
         db.addExercise(
             "Quick calm",
             "Panicked",
-            "inhale:3,exhale:3,inhale:4,exhale:4,inhale:5,exhale:5,inhale:6,exhale:6,inhale:7,hold:7exhale:7",
+            "inhale:3,exhale:3,inhale:4,exhale:4,inhale:5,exhale:5,inhale:6,exhale:6,inhale:7,hold:7,exhale:7",
             1
         )
         db.addExercise(
@@ -70,7 +70,7 @@ class SecondActivity : AppCompatActivity() {
             1
         )
         db.addExercise(
-            "Free diving warmup",
+            "Free diving",
             "Lung capacity",
             "inhale:5,hold:2,exhale:10,hold:2,inhale:5,hold:2,exhale:10,hold:2,inhale:5,hold:2,exhale:10,hold:2,inhale:5,hold:2,exhale:10,hold:2,inhale:5,hold:2,exhale:10,hold:2",
             1
